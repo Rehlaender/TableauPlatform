@@ -8,24 +8,6 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-    <script type="text/javascript">
-      window.onload = function() {
-        initViz();
-      };
-      function initViz() {
-        var containerDiv = document.getElementById("vizContainer"),
-        url = "http://public.tableau.com/views/RegionalSampleWorkbook/Storms",
-        options = {
-          hideTabs: true,
-          onFirstInteractive: function () {
-            console.log("Run this code when the viz has finished loading.");
-          }
-        };
-        // Create a viz object and embed it in the container div.
-        var viz = new tableau.Viz(containerDiv, url, options);
-      }
-    </script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <!--
@@ -44,7 +26,6 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
-    <div id="containerDiv"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
