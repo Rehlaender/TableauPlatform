@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Script from 'react-load-script'
-import tableau from 'tableau-api';
+
 class App extends Component {
   constructor(props) {
      super(props);
@@ -10,13 +9,6 @@ class App extends Component {
    }
 
   componentWillMount() {
-
-    const script = document.createElement("script");
-
-    script.src = "https://public.tableau.com/javascripts/api/tableau-2.min.js";
-    script.async = true;
-
-    document.body.appendChild(script);
   }
 
   componentDidMount() {
