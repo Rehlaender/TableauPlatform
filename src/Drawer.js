@@ -3,19 +3,41 @@ import logo from './logo.svg';
 import './Drawer.css';
 
 class Drawer extends Component {
-  //routes
-  // https://public.tableau.com/views/Top100TableauPublicViews-Q1Q2-2010good/Viewdetail
-  // http://public.tableau.com/views/RegionalSampleWorkbook/Storms'
-  // http://public.tableau.com/views/Top100TableauPublicViews-Q1Q2-2010good/Trends
 
   constructor(props) {
     super(props);
    }
 
   render() {
+    const routes = [
+      {
+        link: 'https://public.tableau.com/views/Top100TableauPublicViews-Q1Q2-2010good/Viewdetail',
+        title: 'Viewdetail'
+      },
+      {
+        link: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+        title: 'Storms'
+      },
+      {
+        link: 'http://public.tableau.com/views/Top100TableauPublicViews-Q1Q2-2010good/Trends',
+        title: 'Trends'
+      }
+    ];
+
     return (
       <div className="Drawer">
-        Im a drawer, lol
+        <div className="snapper">
+          >
+        </div>
+        <div className="column">
+          {
+            routes.map((route, i) =>
+             <div key={i} className="column-button" onClick={this.props.changeTableauSrc.bind(this, route.link)}>
+              {route.title}
+             </div>
+            )
+          }
+        </div>
       </div>
     );
   }

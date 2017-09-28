@@ -10,21 +10,21 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tableauSrc: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms' ,
+      tableauSrc: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
     };
 
-    this.changeTableauSrc = this.changeTableauSrc.bind(this);
     this.showContainer = this.showContainer.bind(this);
    }
 
   showContainer() {
   }
 
-  changeTableauSrc() {
+  changeTableauSrc(route) {
+    this.setState({ tableauSrc: route });
+    console.log(route);
   }
 
-  componentDid
-  Mount() {
+  componentDidMount() {
   }
 
   mount() {
@@ -40,6 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Drawer changeTableauSrc={this.changeTableauSrc.bind(this)} />
         <button onClick={this.mount.bind(this)}>mount</button>
         <button onClick={this.unmount.bind(this)}>unmount</button>
         <div id="reduxContainer"></div>
