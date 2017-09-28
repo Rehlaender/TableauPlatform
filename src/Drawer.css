@@ -2,18 +2,18 @@
   transition: all 1s;
   position: absolute;
   left: 0%;
-  width: 50%;
+  width: 100px;
   height: 100%;
-
 }
 
 .snapper {
+  transition: all 200ms;
+
   z-index: 2;
   height: 10vh;
   width: 5vw;
-  background: white;
   position: absolute;
-  right: -4vh;
+  right: -2vw;
   top: 46vh;
   border-bottom-right-radius: 45px;
   border-top-right-radius: 45px;
@@ -24,19 +24,23 @@
   justify-content: center;
 
   cursor: pointer;
+  font-weight: bold;
+}
+
+.snapper:hover {
+  right: -4vw;
 }
 
 .column {
   position: relative;
   z-index: 10;
-  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 
   height: 100vh;
-  width: 100%;
+  width: 100px;
 }
 
 .column-button {
@@ -47,7 +51,18 @@
   align-items: center;
   justify-content: center;
 
-  border-bottom: 1px solid black;
+  color: #FFFFFF;
+  border-bottom: 1px solid #BDBDBD;
 
+  font-weight: bold;
   cursor: pointer;
+}
+
+.column-button:hover {
+  font-size: 18px;
+  background-color: #F44336;
+}
+
+.column-button.active {
+  background-color: #F44336;
 }

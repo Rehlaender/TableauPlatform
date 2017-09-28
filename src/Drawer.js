@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+
 import './Drawer.css';
+import './pallette.css';
 
 class Drawer extends Component {
 
@@ -25,14 +27,14 @@ class Drawer extends Component {
     ];
 
     return (
-      <div className="Drawer">
-        <div className="snapper">
+      <div className={["Drawer dark-primary-color"]}>
+        <div className={["snapper accent-color text-primary-color"]}>
           >
         </div>
-        <div className="column">
+        <div className={["column dark-primary-color"]}>
           {
             routes.map((route, i) =>
-             <div key={i} className="column-button" onClick={this.props.changeTableauSrc.bind(this, route.link)}>
+             <div key={i} className={["column-button "]} onClick={this.props.changeTableauSrc.bind(this, route.link)}>
               {route.title}
              </div>
             )

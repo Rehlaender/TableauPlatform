@@ -5,6 +5,7 @@ import VisualizationContainer from './VisualizationContainer.js';
 import Drawer from './Drawer.js';
 
 import './App.css';
+import './pallette.css';
 
 class App extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className={["App default-primary-color"]}>
         <Drawer changeTableauSrc={this.changeTableauSrc.bind(this)} />
         <button onClick={this.mount.bind(this)}>mount</button>
         <button onClick={this.unmount.bind(this)}>unmount</button>
