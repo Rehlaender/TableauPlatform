@@ -1,44 +1,63 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import logo from './logo.svg';
+
+import VisualizationContainer from './VisualizationContainer.js';
 import './App.css';
 
 class App extends Component {
   constructor(props) {
-     super(props);
-     this.state = { tableauSrc: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms' };
+    super(props);
+    this.state = {
+      tableauSrc: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms' ,
+      title: 'lel',
+      willShowContainer: false
+    };
+
+    this.changeTableauSrc = this.changeTableauSrc.bind(this);
+    this.showContainer = this.showContainer.bind(this);
+    this.chooseOne = this.chooseOne.bind(this);
+    this.chooseTwo = this.chooseTwo.bind(this);
    }
+
+  showContainer() {
+
+  }
+  changeTableauSrc() {
+  }
+
+  chooseOne() {
+    this.setState({ tableauSrc: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms' });
+    console.log(this.state.tableauSrc);
+  }
+
+  chooseTwo() {
+    this.setState({ tableauSrc: 'http://public.tableau.com/views/Top100TableauPublicViews-Q1Q2-2010good/Trends'});
+    console.log(this.state.tableauSrc);
+  }
 
   componentWillMount() {
   }
 
-  componentDidMount() {
-    this.initViz();
+  mount() {
+    ReactDOM.render(
+      <VisualizationContainer
+        tableauSrc={this.state.tableauSrc}
+        title="lel"/>,
+      document.getElementById('here'))
   }
 
-  initViz() {
-    const containerDiv = document.getElementById("containerDiv");
-    const options = {
-          hideTabs: true,
-          hideToolbar: true,
-          onFirstInteractive: function () {
-            console.log("Run this code when the viz has finished loading.");
-          }
-        };
-    let viz = new window.tableau.Viz(containerDiv, this.state.tableauSrc, options);
-    console.log(viz);
-  }
-
-  consolero() {
-    alert("lel");
-    console.log('Lel');
+  unmount() {
+    ReactDOM.unmountComponentAtNode(document.getElementById('here'));
+    this.setState({ tableauSrc: 'http://public.tableau.com/views/Top100TableauPublicViews-Q1Q2-2010good/Trends'});
   }
 
   render() {
     return (
       <div className="App">
-        {this.state.tableauSrc}
-        <button onClick={this.consolero.bind(this)}>Click</button>
-        <div id="containerDiv"></div>
+        <button onClick={this.mount.bind(this)}>mount</button>
+        <button onClick={this.unmount.bind(this)}>unmount</button>
+        <div id="here"></div>
       </div>
     );
   }
