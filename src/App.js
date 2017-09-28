@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import logo from './logo.svg';
 
 import VisualizationContainer from './VisualizationContainer.js';
+import Drawer from './Drawer.js';
+
 import './App.css';
 
 class App extends Component {
@@ -10,46 +11,30 @@ class App extends Component {
     super(props);
     this.state = {
       tableauSrc: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms' ,
-      title: 'lel',
-      willShowContainer: false
     };
 
     this.changeTableauSrc = this.changeTableauSrc.bind(this);
     this.showContainer = this.showContainer.bind(this);
-    this.chooseOne = this.chooseOne.bind(this);
-    this.chooseTwo = this.chooseTwo.bind(this);
    }
 
   showContainer() {
-
   }
+
   changeTableauSrc() {
   }
 
-  chooseOne() {
-    this.setState({ tableauSrc: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms' });
-    console.log(this.state.tableauSrc);
-  }
-
-  chooseTwo() {
-    this.setState({ tableauSrc: 'http://public.tableau.com/views/Top100TableauPublicViews-Q1Q2-2010good/Trends'});
-    console.log(this.state.tableauSrc);
-  }
-
-  componentWillMount() {
+  componentDid
+  Mount() {
   }
 
   mount() {
     ReactDOM.render(
-      <VisualizationContainer
-        tableauSrc={this.state.tableauSrc}
-        title="lel"/>,
-      document.getElementById('here'))
+      <VisualizationContainer tableauSrc={this.state.tableauSrc} />,
+      document.getElementById('reduxContainer'))
   }
 
   unmount() {
-    ReactDOM.unmountComponentAtNode(document.getElementById('here'));
-    this.setState({ tableauSrc: 'http://public.tableau.com/views/Top100TableauPublicViews-Q1Q2-2010good/Trends'});
+    ReactDOM.unmountComponentAtNode(document.getElementById('reduxContainer'));
   }
 
   render() {
@@ -57,7 +42,7 @@ class App extends Component {
       <div className="App">
         <button onClick={this.mount.bind(this)}>mount</button>
         <button onClick={this.unmount.bind(this)}>unmount</button>
-        <div id="here"></div>
+        <div id="reduxContainer"></div>
       </div>
     );
   }
