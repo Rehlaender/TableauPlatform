@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
+import './VisualizationContainer.css';
+
 class VisualizationContainer extends Component {
   constructor(props) {
      super(props);
-   }
-
-  componentWillMount() {
   }
 
   componentDidMount() {
@@ -27,9 +26,7 @@ class VisualizationContainer extends Component {
 
   render() {
     return (
-      <div className="big-container">
-        {this.props.title}
-        {this.props.tableauSrc}
+      <div className="visualization-container">
         <div id="containerDiv"></div>
       </div>
     );
