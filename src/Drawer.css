@@ -1,3 +1,16 @@
+@media only screen and (min-width : 700px) {
+  .Drawer {
+    display: block;
+  }
+}
+
+@media only screen and (max-width : 699px) {
+  .Drawer {
+    display: none;
+  }
+}
+
+
 .Drawer {
   transition: all 500ms;
   position: fixed;
