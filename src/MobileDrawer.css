@@ -1,0 +1,67 @@
+@media only screen and (min-width : 700px) {
+  .MobileDrawer {
+    display: none;
+  }
+
+  .CornerButton {
+    display: none;
+  }
+}
+
+@media only screen and (max-width : 699px) {
+  .MobileDrawer {
+    display: flex;
+  }
+
+  .CornerButton {
+    display: block;
+  }
+}
+
+.MobileDrawer {
+  position: fixed;
+}
+
+.MobileContainer.shown {
+  top: 0px;
+}
+
+.MobileContainer.hidden {
+  top: -100vh;
+}
+
+.CornerButton {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 60px;
+  width: 60px;
+  background-color: rgba(0,0,255,0.5);
+  border-bottom-right-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.Burger > .burger-item {
+  background-color: #FFF;
+  opacity: 0.75;
+  height: 5px;
+  width: 30px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
+
+.MobileContainer {
+  transition: all 500ms;
+  position: absolute;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

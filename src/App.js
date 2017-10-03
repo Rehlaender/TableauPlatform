@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 
 import VisualizationContainer from './VisualizationContainer.js';
 import Drawer from './Drawer.js';
+import MobileDrawer from './MobileDrawer.js';
+
 
 import './App.css';
 import './pallette.css';
@@ -66,6 +68,10 @@ class App extends Component {
     return (
       <div className={["App"]}>
         <Drawer
+          drawerState={this.state.drawerState}
+          changeDrawerState={this.changeDrawerState.bind(this)}
+          changeTableauSrc={this.changeTableauSrc.bind(this)} />
+        <MobileDrawer
           drawerState={this.state.drawerState}
           changeDrawerState={this.changeDrawerState.bind(this)}
           changeTableauSrc={this.changeTableauSrc.bind(this)} />

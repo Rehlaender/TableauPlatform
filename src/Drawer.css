@@ -80,9 +80,9 @@
 
 .column-button:hover {
   font-size: 18px;
-  background-color: #F44336;
+  background-color: #3F51B5;
 }
 
 .column-button.active {
-  background-color: #F44336;
+  background-color: #3F51B5;
 }
