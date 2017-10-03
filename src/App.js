@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   changeTableauSrc(route) {
+    this.unmount();
     this.setState({ tableauSrc: route });
     console.log(route);
     this.changeDrawerState();
@@ -37,7 +38,17 @@ class App extends Component {
     }
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    console.log('component will update', nextProps, nextState.tableauSrc);
+    this.mount();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('component did update', prevProps, prevState.tableauSrc);
+  }
+
   componentDidMount() {
+    this.mount();
   }
 
   mount() {
@@ -57,8 +68,6 @@ class App extends Component {
           drawerState={this.state.drawerState}
           changeDrawerState={this.changeDrawerState.bind(this)}
           changeTableauSrc={this.changeTableauSrc.bind(this)} />
-        <button onClick={this.mount.bind(this)}>mount</button>
-        <button onClick={this.unmount.bind(this)}>unmount</button>
         <div id="reduxContainer"></div>
       </div>
     );
