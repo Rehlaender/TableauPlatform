@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.App {
+  position: relative;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -25,4 +29,119 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media only screen and (min-width : 500px) {
+  #reduxContainer {
+    display: flex;
+  }
+
+  #welcome {
+    display: flex;
+  }
+
+  #warning {
+    display: none;
+  }
+}
+
+@media only screen and (max-width : 499px) {
+  #reduxContainer {
+    display: none;
+  }
+
+  #welcome {
+    display: none;
+  }
+
+  #warning {
+    display: flex;
+  }
+}
+
+#reduxContainer {
+  justify-content: center;
+  align-items: center;
+}
+
+#welcome {
+  width: 100vw;
+  height: 100vh;
+  color: #FFF;
+  font-weight: bolder;
+  justify-content: center;
+  align-items: center;
+}
+
+#welcome.dirty {
+  display: none;
+}
+
+#warning {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  font-weight: bolder;
+  background-color: #F44336;
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width : 700px) {
+  .loading-container {
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width : 699px) {
+  .loading-container {
+    width: 1000px;
+    height: 1000px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 100px;
+    padding-left: 50px;
+  }
+
+  .loading-text {
+    position: fixed;
+    top: 150px;
+    left: 150px;
+  }
+}
+
+.loading-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.loading-container.loading {
+  display: flex;
+}
+
+.loading-container.loaded {
+  display: none;
+}
+
+.loading-text {
+  font-size: 16px;
+  font-weight: bolder;
+  animation: loadingText 2s infinite;
+}
+
+@keyframes loadingText {
+  0% {
+    font-size: 16px;
+  }
+  50% {
+    font-size: 20px;
+  }
+  100% {
+    font-size: 16px;
+  }
 }

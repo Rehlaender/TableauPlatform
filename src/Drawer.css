@@ -1,0 +1,89 @@
+@media only screen and (min-width : 700px) {
+  .Drawer {
+    display: block;
+  }
+}
+
+@media only screen and (max-width : 699px) {
+  .Drawer {
+    display: none;
+  }
+}
+
+
+.Drawer {
+  z-index: 100;
+  transition: all 500ms;
+  position: fixed;
+  width: 100px;
+  height: 100%;
+}
+
+.Drawer.shown {
+  left: 0px;
+}
+
+.Drawer.hidden {
+  left: -100px;
+}
+
+.snapper {
+  transition: all 200ms;
+
+  z-index: 2;
+  height: 10vh;
+  width: 5vw;
+  position: absolute;
+  right: -2vw;
+  top: 46vh;
+  border-bottom-right-radius: 45px;
+  border-top-right-radius: 45px;
+  border: 1px solid white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.snapper:hover {
+  right: -4vw;
+}
+
+.column {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 100vh;
+  width: 100px;
+}
+
+.column-button {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #FFFFFF;
+  border-bottom: 1px solid #BDBDBD;
+
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.column-button:hover {
+  font-size: 18px;
+  background-color: #3F51B5;
+}
+
+.column-button.active {
+  background-color: #3F51B5;
+}
