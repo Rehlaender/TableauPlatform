@@ -46,7 +46,7 @@
   }
 
   #warning {
-    display: block;
+    display: flex;
   }
 }
 
@@ -55,8 +55,32 @@
   align-items: center;
 }
 
-#warning {
+#welcome {
+  width: 100vw;
+  height: 100vh;
+  color: #FFF;
+  font-weight: bolder;
+  justify-content: center;
+  align-items: center;
+}
 
+#welcome.clean {
+  display: flex;
+}
+
+#welcome.dirty {
+  display: none;
+}
+
+#warning {
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+  font-weight: bolder;
+  background-color: red;
+  text-transform: uppercase;
 }
 
 @media only screen and (min-width : 700px) {

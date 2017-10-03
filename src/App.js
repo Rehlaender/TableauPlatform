@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       tableauSrc: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
       drawerState: 'hidden',
-      loadingContainerState: 'loaded'
+      loadingContainerState: 'loaded',
+      welcomeContainerState: 'clean'
     };
 
     this.showContainer = this.showContainer.bind(this);
@@ -26,9 +27,9 @@ class App extends Component {
 
   changeTableauSrc(route) {
     this.unmount();
+    this.changeWelcomeState();
     this.setState({ tableauSrc: route });
     this.changeDrawerState();
-    // HACK: HERE ADD THE LOADING SCREEN
     this.handleChangeTableTimeout();
   }
 
@@ -55,22 +56,22 @@ class App extends Component {
     }
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  changeWelcomeState() {
+    this.setState({welcomeContainerState: 'dirty'});
   }
 
-  componentDidUpdate(prevProps, prevState) {
-  }
+  componentWillUpdate(nextProps, nextState) { }
 
-  componentDidMount() {
-    // this.mount();
-  }
+  componentDidUpdate(prevProps, prevState) { }
+
+  componentDidMount() { }
 
   mount() {
     ReactDOM.render(
       <VisualizationContainer
         tableauSrc={this.state.tableauSrc}
         changeLoadingState={this.changeLoadingState.bind(this)} />,
-      document.getElementById('reduxContainer'))
+      document.getElementById('reduxContainer'));
   }
 
   unmount() {
@@ -93,7 +94,10 @@ class App extends Component {
           <div className={["loading-text"]}>loading</div>
         </div>
         <div id="reduxContainer"></div>
-        <div id="warning"> Please use this app in landscape </div>
+        <div id="welcome" className={["default-primary-color " + this.state.welcomeContainerState]}>
+          Welcome. Please choose a visualization from the drawer.
+        </div>
+        <div id="warning"> Warning - Please use this app in landscape mode </div>
       </div>
 
     );
