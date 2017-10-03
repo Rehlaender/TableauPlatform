@@ -6,11 +6,11 @@
 }
 
 .Drawer.shown {
-  left: 0%;
+  left: 0px;
 }
 
 .Drawer.hidden {
-  left: -11%;
+  left: -100px;
 }
 
 .snapper {
