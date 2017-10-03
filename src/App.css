@@ -35,6 +35,11 @@
   #reduxContainer {
     display: flex;
   }
+
+  #welcome {
+    display: flex;
+  }
+
   #warning {
     display: none;
   }
@@ -42,6 +47,10 @@
 
 @media only screen and (max-width : 499px) {
   #reduxContainer {
+    display: none;
+  }
+
+  #welcome {
     display: none;
   }
 
@@ -64,10 +73,6 @@
   align-items: center;
 }
 
-#welcome.clean {
-  display: flex;
-}
-
 #welcome.dirty {
   display: none;
 }
@@ -79,7 +84,7 @@
   align-items: center;
   color: #FFF;
   font-weight: bolder;
-  background-color: red;
+  background-color: #F44336;
   text-transform: uppercase;
 }
 
