@@ -24,13 +24,17 @@ class App extends Component {
   changeTableauSrc(route) {
     this.unmount();
     this.setState({ tableauSrc: route });
-    console.log(route);
     this.changeDrawerState();
+    // HACK: HERE ADD THE LOADING SCREEN
+    this.handleChangeTableTimeout();
+  }
+
+  handleChangeTableTimeout() {
+    setTimeout( ()=> {this.mount();}, 1000);
   }
 
   changeDrawerState() {
     const handler = this.state.drawerState;
-    console.log(handler, 'handler state')
     if(handler === 'shown') {
       this.setState({drawerState: 'hidden'});
     } else if (handler === 'hidden') {
@@ -39,12 +43,9 @@ class App extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    console.log('component will update', nextProps, nextState.tableauSrc);
-    this.mount();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('component did update', prevProps, prevState.tableauSrc);
   }
 
   componentDidMount() {
