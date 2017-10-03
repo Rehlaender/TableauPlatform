@@ -97,7 +97,6 @@ class App extends Component {
         <div id="welcome" className={["default-primary-color " + this.state.welcomeContainerState]}>
           Welcome. Please choose a visualization from the drawer.
         </div>
-        <div id="warning"> Warning - Please use this app in landscape mode </div>
       </div>
 
     );

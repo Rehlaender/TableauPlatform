@@ -31,40 +31,14 @@
   to { transform: rotate(360deg); }
 }
 
-@media only screen and (min-width : 500px) {
-  #reduxContainer {
-    display: flex;
-  }
-
-  #welcome {
-    display: flex;
-  }
-
-  #warning {
-    display: none;
-  }
-}
-
-@media only screen and (max-width : 499px) {
-  #reduxContainer {
-    display: none;
-  }
-
-  #welcome {
-    display: none;
-  }
-
-  #warning {
-    display: flex;
-  }
-}
-
 #reduxContainer {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #welcome {
+  display: flex;
   width: 100vw;
   height: 100vh;
   color: #FFF;
