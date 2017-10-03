@@ -14,7 +14,8 @@ class App extends Component {
     super(props);
     this.state = {
       tableauSrc: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-      drawerState: 'shown'
+      drawerState: 'hidden',
+      loadingContainerState: 'loaded'
     };
 
     this.showContainer = this.showContainer.bind(this);
@@ -32,6 +33,7 @@ class App extends Component {
   }
 
   handleChangeTableTimeout() {
+    this.changeLoadingState();
     setTimeout( ()=> {this.mount();}, 1000);
   }
 
@@ -44,6 +46,15 @@ class App extends Component {
     }
   }
 
+  changeLoadingState() {
+    const handler = this.state.loadingContainerState;
+    if(handler === 'loading') {
+      this.setState({loadingContainerState: 'loaded'});
+    } else if (handler === 'loaded') {
+      this.setState({loadingContainerState: 'loading'});
+    }
+  }
+
   componentWillUpdate(nextProps, nextState) {
   }
 
@@ -51,12 +62,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.mount();
+    // this.mount();
   }
 
   mount() {
     ReactDOM.render(
-      <VisualizationContainer tableauSrc={this.state.tableauSrc} />,
+      <VisualizationContainer
+        tableauSrc={this.state.tableauSrc}
+        changeLoadingState={this.changeLoadingState.bind(this)} />,
       document.getElementById('reduxContainer'))
   }
 
@@ -75,6 +88,10 @@ class App extends Component {
           drawerState={this.state.drawerState}
           changeDrawerState={this.changeDrawerState.bind(this)}
           changeTableauSrc={this.changeTableauSrc.bind(this)} />
+        <div className={["loading-container default-primary-color text-primary-color "
+                          + this.state.loadingContainerState]}>
+          <div className={["loading-text"]}>loading</div>
+        </div>
         <div id="reduxContainer"></div>
         <div id="warning"> Please use this app in landscape </div>
       </div>

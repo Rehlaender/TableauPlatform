@@ -11,13 +11,17 @@ class VisualizationContainer extends Component {
     this.initViz();
   }
 
+
   initViz() {
     const containerDiv = document.getElementById("containerDiv");
+    var fireFunction = this.props.changeLoadingState.bind(this);
+
     const options = {
           hideTabs: true,
           hideToolbar: true,
           onFirstInteractive: function () {
             console.log("this is a callback after loading viz.");
+            fireFunction();
           }
         };
     let viz = new window.tableau.Viz(containerDiv, this.props.tableauSrc, options);

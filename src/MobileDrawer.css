@@ -18,7 +18,14 @@
   }
 }
 
+@media only screen and (max-width : 499px) {
+  .CornerButton {
+    display: none !important;
+  }
+}
+
 .MobileDrawer {
+  z-index: 100;
   position: fixed;
 }
 

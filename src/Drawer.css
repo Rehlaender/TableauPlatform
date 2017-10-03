@@ -12,6 +12,7 @@
 
 
 .Drawer {
+  z-index: 100;
   transition: all 500ms;
   position: fixed;
   width: 100px;
