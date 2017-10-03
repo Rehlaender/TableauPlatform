@@ -1,9 +1,16 @@
 .Drawer {
-  transition: all 1s;
-  position: absolute;
-  left: 0%;
+  transition: all 500ms;
+  position: fixed;
   width: 100px;
   height: 100%;
+}
+
+.Drawer.shown {
+  left: 0%;
+}
+
+.Drawer.hidden {
+  left: -11%;
 }
 
 .snapper {

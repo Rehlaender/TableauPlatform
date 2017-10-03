@@ -12,6 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       tableauSrc: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+      drawerState: 'shown'
     };
 
     this.showContainer = this.showContainer.bind(this);
@@ -23,6 +24,17 @@ class App extends Component {
   changeTableauSrc(route) {
     this.setState({ tableauSrc: route });
     console.log(route);
+    this.changeDrawerState();
+  }
+
+  changeDrawerState() {
+    const handler = this.state.drawerState;
+    console.log(handler, 'handler state')
+    if(handler === 'shown') {
+      this.setState({drawerState: 'hidden'});
+    } else if (handler === 'hidden') {
+      this.setState({drawerState: 'shown'});
+    }
   }
 
   componentDidMount() {
@@ -40,8 +52,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className={["App default-primary-color"]}>
-        <Drawer changeTableauSrc={this.changeTableauSrc.bind(this)} />
+      <div className={["App"]}>
+        <Drawer
+          drawerState={this.state.drawerState}
+          changeDrawerState={this.changeDrawerState.bind(this)}
+          changeTableauSrc={this.changeTableauSrc.bind(this)} />
         <button onClick={this.mount.bind(this)}>mount</button>
         <button onClick={this.unmount.bind(this)}>unmount</button>
         <div id="reduxContainer"></div>

@@ -8,7 +8,10 @@ class Drawer extends Component {
 
   constructor(props) {
     super(props);
-   }
+
+    this.state = {
+    };
+  }
 
   render() {
     const routes = [
@@ -27,14 +30,16 @@ class Drawer extends Component {
     ];
 
     return (
-      <div className={["Drawer dark-primary-color"]}>
-        <div className={["snapper accent-color text-primary-color"]}>
+      <div className={["Drawer dark-primary-color " + this.props.drawerState]}>
+        <div className={["snapper accent-color text-primary-color"]}
+              onClick={this.props.changeDrawerState.bind(this)}>
           >
         </div>
         <div className={["column dark-primary-color"]}>
           {
             routes.map((route, i) =>
-             <div key={i} className={["column-button "]} onClick={this.props.changeTableauSrc.bind(this, route.link)}>
+             <div key={i} className={["column-button "]}
+                    onClick={this.props.changeTableauSrc.bind(this, route.link)}>
               {route.title}
              </div>
             )
