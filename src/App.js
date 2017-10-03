@@ -69,7 +69,9 @@ class App extends Component {
           changeDrawerState={this.changeDrawerState.bind(this)}
           changeTableauSrc={this.changeTableauSrc.bind(this)} />
         <div id="reduxContainer"></div>
+        <div id="warning"> Please use this app in landscape </div>
       </div>
+
     );
   }
 }

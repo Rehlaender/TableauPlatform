@@ -31,8 +31,42 @@
   to { transform: rotate(360deg); }
 }
 
+@media only screen and (min-width : 320px) {
+
+}
+
+@media only screen and (min-width : 480px) {
+
+}
+
+@media only screen and (min-width : 768px) {
+
+}
+
+@media only screen and (min-width : 500px) {
+  #reduxContainer {
+    display: flex;
+  }
+  #warning {
+    display: none;
+  }
+}
+
+@media only screen and (max-width : 499px) {
+  #reduxContainer {
+    display: none;
+  }
+
+  #warning {
+    display: block;
+  }
+}
+
 #reduxContainer {
-  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#warning {
+
 }
