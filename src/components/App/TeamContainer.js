@@ -33,19 +33,26 @@ class TeamContainer extends Component {
     const Team = this.state.actualTeam;
 
     return (
-      <div>
-        This is team { Team.title } container
+      <div className={["team-container"]}>
+        <div className={["title"]}>
+          This is team { Team.title } container
+        </div>
         {
           // Sections containers
           Team.context.map((Section, i) =>
-            <div
-              key={i} className={["column-button "]}>
-              <strong>{Section.title}</strong>
+            <div key={i} className={["section-container"]}>
+              <div className={["section-title"]}>{Section.title}</div>
               {
                 // Visualizations
                 Section.context.map((Visualization, j) =>
-                  <Link to={'/visualization/' + Team.id +
-                            '/' + Section.id + '/' + Visualization.id  } key={j}>{Visualization.title}</Link>
+                  <Link key={j}
+                        to={'/visualization/' + Team.id +
+                            '/' + Section.id + '/' + Visualization.id  }
+                        className={["visualization-container"]}    >
+                    <div>
+                      {Visualization.title}
+                    </div>
+                  </Link>
                 )
               }
            </div>
