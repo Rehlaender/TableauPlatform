@@ -1,5 +1,5 @@
-// src/components/App/index.js
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Routes from '../../routes.js';
 
 class VisualizationContainer extends Component {
@@ -10,10 +10,27 @@ class VisualizationContainer extends Component {
     };
   }
 
-  componentDidMount() { }
+  componentDidMount() {
+    this.initViz();
+    console.log(this.state.actualVisualization.tableauUrl);
+  }
 
   componentWillMount() {
     this.findVisualizationObject();
+  }
+
+  initViz() {
+    const containerDiv = document.getElementById("containerDiv");
+
+    const options = {
+            hideTabs: true,
+            hideToolbar: true,
+            onFirstInteractive: function () {
+              console.log("this is a callback after loading viz.");
+              //fireFunction();
+            }
+          };
+    let viz = new window.tableau.Viz(containerDiv, this.state.actualVisualization.tableauUrl, options);
   }
 
   findVisualizationObject() {
@@ -39,6 +56,11 @@ class VisualizationContainer extends Component {
     return (
       <div>
         This is Visualization { Visualization.title } container
+        <p>-</p>
+        <Link to={ "/team/" + this.props.match.params.team }> Go back to { this.props.match.params.team }</Link>
+        <p>-</p>
+        <br/>
+        <div id="containerDiv"></div>
       </div>
     );
   }
