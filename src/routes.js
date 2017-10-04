@@ -5,85 +5,109 @@ const Routes = [
     'context': [
       {
         'id': 'desarrollo',
-        'title': 'Desarrollo',
+        'title': 'desarrollar productos y servicios',
         'context': [
           {
-            'id': 'la1',
-            'title': 'La 1',
-            'context': [
-              {
-                'id': 'la1children',
-                'title': 'La 1 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              },
-              {
-                'id': 'la2children',
-                'title': 'La 2 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              },
-              {
-                'id': 'la3children',
-                'title': 'La 3 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              }
-            ]
+            'id': 'generacion',
+            'title': 'generacion de ideas',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
           },
           {
-            'id': 'la2',
-            'title': 'La 2',
-            'context': [
-              {
-                'id': 'la1children',
-                'title': 'La 1 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              },
-              {
-                'id': 'la2children',
-                'title': 'La 2 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              },
-              {
-                'id': 'la3children',
-                'title': 'La 3 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              }
-            ]
+            'id': 'rapid',
+            'title': 'rapid prototyping',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'ingenieria',
+            'title': 'ingenieria',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'diseno',
+            'title': 'diseño de empaques',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'canal',
+            'title': 'canal de localizacion',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
           }
         ]
       },
       {
-        'id': 'notdesarrollo',
-        'title': 'Not desarrolloDesarrollo',
+        'id': 'demanda',
+        'title': 'generar desarrollo y demanda',
         'context': [
           {
-            'id': 'la1',
-            'title': 'La 1',
-            'context': [
-              {
-                'id': 'la1children',
-                'title': 'La 1 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              },
-              {
-                'id': 'la2children',
-                'title': 'La 2 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              },
-              {
-                'id': 'la3children',
-                'title': 'La 3 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              }
-            ]
+            'id': 'inteligencia',
+            'title': 'inteliencia comercial',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'analisis',
+            'title': 'analisis de mercado',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'ventas',
+            'title': 'ventas',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          }
+        ]
+      },
+      {
+        'id': 'planear',
+        'title': 'planear y administrar la empresa',
+        'context': [
+          {
+            'id': 'rh',
+            'title': 'rh',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'ti',
+            'title': 'ti',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'finanzas',
+            'title': 'finanzas',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'gestion',
+            'title': 'gestion de propiedades',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'compromiso',
+            'title': 'compromiso ambiental',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'relaciones',
+            'title': 'relaciones externas',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'planeacion',
+            'title': 'planeacion estrategica',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
           }
         ]
       }
@@ -94,62 +118,110 @@ const Routes = [
     'title': 'Not Manufactura',
     'context': [
       {
-        'id': 'notdesarrollo',
-        'title': 'Desarrollo',
+        'id': 'desarrollo',
+        'title': 'desarrollar productos y servicios',
         'context': [
           {
-            'id': 'la1',
-            'title': 'La 1',
-            'context': [
-              {
-                'id': 'la1children',
-                'title': 'La 1 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              },
-              {
-                'id': 'la2children',
-                'title': 'La 2 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              },
-              {
-                'id': 'la3children',
-                'title': 'La 3 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              }
-            ]
+            'id': 'generacion',
+            'title': 'generacion de ideas',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'rapid',
+            'title': 'rapid prototyping',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'ingenieria',
+            'title': 'ingenieria',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'diseno',
+            'title': 'diseño de empaques',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'canal',
+            'title': 'canal de localizacion',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
           }
         ]
       },
       {
-        'id': 'notdesarrollo',
-        'title': 'Not desarrolloDesarrollo',
+        'id': 'demanda',
+        'title': 'generar desarrollo y demanda',
         'context': [
           {
-            'id': 'la1',
-            'title': 'La 1',
-            'context': [
-              {
-                'id': 'la1children',
-                'title': 'La 1 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              },
-              {
-                'id': 'la2children',
-                'title': 'La 2 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              },
-              {
-                'id': 'la3children',
-                'title': 'La 3 children',
-                'icon': '',
-                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
-              }
-            ]
+            'id': 'inteligencia',
+            'title': 'inteliencia comercial',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'analisis',
+            'title': 'analisis de mercado',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'ventas',
+            'title': 'ventas',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          }
+        ]
+      },
+      {
+        'id': 'planear',
+        'title': 'planear y administrar la empresa',
+        'context': [
+          {
+            'id': 'rh',
+            'title': 'rh',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'ti',
+            'title': 'ti',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'finanzas',
+            'title': 'finanzas',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'gestion',
+            'title': 'gestion de propiedades',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'compromiso',
+            'title': 'compromiso ambiental',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'relaciones',
+            'title': 'relaciones externas',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+          },
+          {
+            'id': 'planeacion',
+            'title': 'planeacion estrategica',
+            'icon': '',
+            'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
           }
         ]
       }
