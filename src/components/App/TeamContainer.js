@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Flexbox } from 'flexbox-react';
+
+import '../../flexbox.css';
+
+
 import Routes from '../../routes.js';
 
 class TeamContainer extends Component {
@@ -33,7 +38,7 @@ class TeamContainer extends Component {
     const Team = this.state.actualTeam;
 
     return (
-      <div className={["team-container"]}>
+      <div className={["team-container flex flex-column flex-all-center"]}>
         <div className={["title"]}>
           This is team { Team.title } container
         </div>
