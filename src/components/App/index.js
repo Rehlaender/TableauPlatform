@@ -2,8 +2,11 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Blob from './Blob.js';
-import BlobBrother from './BlobBrother.js';
+import MainContainer from './MainContainer.js';
+import TeamContainer from './TeamContainer.js';
+import SectionContainer from './SectionContainer.js';
+import VisualizationContainer from './VisualizationContainer.js';
+
 
 import './style.css';
 
@@ -13,8 +16,10 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/blob' component={Blob}/>
-          <Route path='/blob/:container' component={BlobBrother}/>
+          <Route exact path='/main' component={MainContainer}/>
+          <Route path='/main/:team' component={TeamContainer}/>
+          <Route path='/main/:team/:section' component={SectionContainer}/>
+          <Route path='/main/:team/:section/:visualization' component={VisualizationContainer}/>
         </Switch>
       </div>
     );
