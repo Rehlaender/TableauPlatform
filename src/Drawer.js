@@ -16,8 +16,8 @@ class Drawer extends Component {
   render() {
     const routes = [
       {
-        link: 'https://public.tableau.com/views/Top100TableauPublicViews-Q1Q2-2010good/Viewdetail',
-        title: 'Viewdetail'
+        link: 'http://mxmtypoc05/t/Arquitectura/views/Manufacturav22/Canaldecolocacin?:embed=y&:display_count=no&:showAppBanner=false&:showShareOptions=false&:showVizHome=no',
+        title: 'Tableu server'
       },
       {
         link: 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
