@@ -15,14 +15,6 @@ class SectionContainer extends Component {
     return (
       <div>
         This is a section container
-        {
-          routes.map((route, i) =>
-           <div key={i} className={["column-button "]}
-                  onClick={this.goTo.bind(this, route.id)}>
-            {route.title}
-           </div>
-          )
-        }
       </div>
     );
   }

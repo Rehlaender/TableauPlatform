@@ -1,4 +1,3 @@
-// src/components/App/index.js
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
@@ -7,6 +6,7 @@ import TeamContainer from './TeamContainer.js';
 import SectionContainer from './SectionContainer.js';
 import VisualizationContainer from './VisualizationContainer.js';
 
+import Blob from './Blob.js';
 
 import './style.css';
 
@@ -16,10 +16,11 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/main' component={MainContainer}/>
+          <Route exact path='/' component={MainContainer}/>
           <Route path='/main/:team' component={TeamContainer}/>
-          <Route path='/main/:team/:section' component={SectionContainer}/>
-          <Route path='/main/:team/:section/:visualization' component={VisualizationContainer}/>
+          <Route path='/team/:section' component={SectionContainer}/>
+          <Route path='/section/:visualization' component={VisualizationContainer}/>
+          <Route path='*' component={Blob}/>
         </Switch>
       </div>
     );

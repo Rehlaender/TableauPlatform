@@ -8,6 +8,10 @@ class TeamContainer extends Component {
     console.log(route, '- well call this object');
   }
 
+  componentDidMount() {
+    console.log('--- THIS PROPS', this.props.match.params);
+  }
+
   render() {
     const routes = Routes[0].context;
     console.log(routes);

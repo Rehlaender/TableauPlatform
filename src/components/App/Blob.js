@@ -10,7 +10,7 @@ class Blob extends Component {
 
     return (
       <div>
-        HI IM BLOB
+        How did you get here?
       </div>
     );
   }
