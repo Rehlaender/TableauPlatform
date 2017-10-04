@@ -17,7 +17,7 @@ class MainContainer extends Component {
         This is a main container
         {
           routes.map((route, i) =>
-           <Link to={"/main/" + route.id}
+           <Link to={"/team/" + route.id}
               key={i} className={["column-button "]}>
             {route.title}
            </Link>

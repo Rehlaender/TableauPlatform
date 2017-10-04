@@ -10,8 +10,6 @@ class SectionContainer extends Component {
 
   render() {
     const routes = Routes[0].context[0].context;
-    console.log(routes);
-
     return (
       <div>
         This is a section container

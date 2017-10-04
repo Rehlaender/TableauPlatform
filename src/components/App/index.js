@@ -17,9 +17,9 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path='/' component={MainContainer}/>
-          <Route path='/main/:team' component={TeamContainer}/>
-          <Route path='/team/:section' component={SectionContainer}/>
-          <Route path='/section/:visualization' component={VisualizationContainer}/>
+          <Route path='/team/:team' component={TeamContainer}/>
+          <Route path='/section/:team/:section' component={SectionContainer}/>
+          <Route path='/visualization/:team/:section/:visualization' component={VisualizationContainer}/>
           <Route path='*' component={Blob}/>
         </Switch>
       </div>

@@ -20,14 +20,18 @@ class TeamContainer extends Component {
       <div>
         This is a team container
         {
+          // Sections containers
           routes.map((route, i) =>
             <div
               key={i} className={["column-button "]}
                   onClick={this.goTo.bind(this, route.id)}>
               <strong>{route.title}</strong>
               {
+                // Visualizations
+
                 route.context.map((vRoute, j) =>
-                  <Link to={'/section/' + vRoute.tableauUrl } key={j}>{vRoute.title}</Link>
+                  <Link to={'/visualization/' + this.props.match.params.team +
+                            '/' + route.id + '/' + vRoute.id  } key={j}>{vRoute.title}</Link>
                 )
               }
            </div>
