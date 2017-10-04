@@ -1,5 +1,5 @@
-// src/components/App/index.js
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Routes from '../../routes.js';
 
 class MainContainer extends Component {
@@ -17,10 +17,10 @@ class MainContainer extends Component {
         This is a main container
         {
           routes.map((route, i) =>
-           <div key={i} className={["column-button "]}
-                  onClick={this.goTo.bind(this, route.id)}>
+           <Link to={"/main/" + route.id}
+              key={i} className={["column-button "]}>
             {route.title}
-           </div>
+           </Link>
           )
         }
       </div>

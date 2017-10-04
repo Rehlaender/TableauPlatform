@@ -1,5 +1,6 @@
 // src/components/App/index.js
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Routes from '../../routes.js';
 
 class TeamContainer extends Component {
@@ -21,10 +22,11 @@ class TeamContainer extends Component {
         This is a team container
         {
           routes.map((route, i) =>
-           <div key={i} className={["column-button "]}
+           <Link to={"/team/" + route.id}
+              key={i} className={["column-button "]}
                   onClick={this.goTo.bind(this, route.id)}>
             {route.title}
-           </div>
+           </Link>
           )
         }
       </div>

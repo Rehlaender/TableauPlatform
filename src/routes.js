@@ -30,6 +30,30 @@ const Routes = [
                 'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
               }
             ]
+          },
+          {
+            'id': 'la2',
+            'title': 'La 2',
+            'context': [
+              {
+                'id': 'la1children',
+                'title': 'La 1 children',
+                'icon': '',
+                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+              },
+              {
+                'id': 'la2children',
+                'title': 'La 2 children',
+                'icon': '',
+                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+              },
+              {
+                'id': 'la3children',
+                'title': 'La 3 children',
+                'icon': '',
+                'tableauUrl': 'http://public.tableau.com/views/RegionalSampleWorkbook/Storms',
+              }
+            ]
           }
         ]
       },
