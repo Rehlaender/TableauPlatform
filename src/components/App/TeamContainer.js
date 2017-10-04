@@ -1,4 +1,3 @@
-// src/components/App/index.js
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Routes from '../../routes.js';
@@ -22,11 +21,16 @@ class TeamContainer extends Component {
         This is a team container
         {
           routes.map((route, i) =>
-           <Link to={"/team/" + route.id}
+            <div
               key={i} className={["column-button "]}
                   onClick={this.goTo.bind(this, route.id)}>
-            {route.title}
-           </Link>
+              <strong>{route.title}</strong>
+              {
+                route.context.map((vRoute, j) =>
+                  <Link to={'/section/' + vRoute.tableauUrl } key={j}>{vRoute.title}</Link>
+                )
+              }
+           </div>
           )
         }
       </div>
