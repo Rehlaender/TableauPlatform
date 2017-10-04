@@ -3,35 +3,49 @@ import { Link } from 'react-router-dom';
 import Routes from '../../routes.js';
 
 class TeamContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      actualTeam: 'notmanufactura'
+    };
+  }
 
   goTo(route) {
     console.log(route, '- well call this object');
   }
 
   componentDidMount() {
-    console.log('--- THIS PROPS', this.props.match.params);
+  }
+
+  componentWillMount() {
+    this.findTeamObject();
+  }
+
+  findTeamObject() {
+    const actualTeam = this.props.match.params.team;
+    const result = Routes.filter((obj) => {
+      return obj.id = actualTeam;
+    });
+    this.setState({ actualTeam: result[0] });
   }
 
   render() {
-    const routes = Routes[0].context;
-    console.log(routes);
+    const Team = this.state.actualTeam;
 
     return (
       <div>
-        This is a team container
+        This is team { Team.title } container
         {
           // Sections containers
-          routes.map((route, i) =>
+          Team.context.map((Section, i) =>
             <div
-              key={i} className={["column-button "]}
-                  onClick={this.goTo.bind(this, route.id)}>
-              <strong>{route.title}</strong>
+              key={i} className={["column-button "]}>
+              <strong>{Section.title}</strong>
               {
                 // Visualizations
-
-                route.context.map((vRoute, j) =>
-                  <Link to={'/visualization/' + this.props.match.params.team +
-                            '/' + route.id + '/' + vRoute.id  } key={j}>{vRoute.title}</Link>
+                Section.context.map((Visualization, j) =>
+                  <Link to={'/visualization/' + Team.id +
+                            '/' + Section.id + '/' + Visualization.id  } key={j}>{Visualization.title}</Link>
                 )
               }
            </div>
