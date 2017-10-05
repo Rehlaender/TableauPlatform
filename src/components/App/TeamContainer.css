@@ -2,6 +2,7 @@
   .team-container {
     scroll-behavior: smooth;
     overflow-y: scroll;
+    margin-bottom: 30px;
   }
 }
 

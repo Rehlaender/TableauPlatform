@@ -11,7 +11,8 @@ class TeamContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      actualTeam: 'notmanufactura'
+      actualTeam: 'notmanufactura',
+      routesForDrawer: ''
     };
   }
 
@@ -29,9 +30,9 @@ class TeamContainer extends Component {
   findTeamObject() {
     const actualTeam = this.props.match.params.team;
     const result = Routes.filter((obj) => {
-      return obj.id = actualTeam;
+      return obj.id === actualTeam;
     });
-    this.setState({ actualTeam: result[0] });
+    this.setState({ actualTeam: result[0], routesForDrawer: Routes});
   }
 
   render() {
@@ -39,7 +40,7 @@ class TeamContainer extends Component {
 
     return (
       <div className={["team-container flex flex-column flex-jc-flex-start flex-ai-center"]}>
-        <Drawer goBack={this.props.history.goBack} />
+        <Drawer goBack={this.props.history.goBack} routes={this.state.routesForDrawer}/>
         <div className={["team-title flex flex-row flex-all-center"]}>
           <h2>
             This is team { Team.title } container

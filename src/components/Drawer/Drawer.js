@@ -10,7 +10,8 @@ class Drawer extends Component {
     super(props);
     this.state = {
       overMenuBottom: '-100vh',
-      overMenuDisplay: 'none'
+      overMenuDisplay: 'none',
+      routes: ''
     };
   }
 
@@ -26,12 +27,27 @@ class Drawer extends Component {
   }
 
   render() {
+  console.log(this.props.routes);
     return (
       <div id="drawer" className={["flex flex-column"]}>
-        <div style={{top: this.state.overMenuBottom, display: this.state.overMenuDisplay }} className={["over-menu"]}></div>
+        <div style={{top: this.state.overMenuBottom, display: this.state.overMenuDisplay }}
+            className={["over-menu flex flex-column flex-jc-space-around flex-ai-center"]}>
+        {
+          this.props.routes.map((route, i) =>
+            <div key={i} className={["flex flex-column"]}>
+              <div>{route.title}</div>
+              {
+                // this.props.routes[0].context.map((contextRoute, j)) =>
+                //   <div key={j}>{contextRoute.title}</div>
+                // )
+              }
+            </div>
+          )
+        }
+        </div>
         <div id="action-bar" className={["flex flex-row flex-jc-space-around flex-ai-center"]}>
           <div onClick={ ()=>{this.props.goBack();} } className={["back icon"]}>Go Back</div>
-          <div className={["home icon"]}>HOME</div>
+          <Link to="/" className={["home icon"]}>HOME</Link>
           <div onClick={this.toggleOverMenu.bind(this)} className={["burger icon"]}>Burger</div>
         </div>
       </div>
