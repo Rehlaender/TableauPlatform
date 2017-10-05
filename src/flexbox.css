@@ -22,3 +22,7 @@
 .flex-ai-center { align-items: center; }
 .flex-ai-baselinte { align-items: baseline; }
 .flex-ai-stretch { align-items: stretch; }
+/*wrap*/
+.flex-no-wrap { flex-wrap: nowrap; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse; }
