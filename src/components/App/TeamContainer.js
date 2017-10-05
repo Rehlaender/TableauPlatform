@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../../flexbox.css';
 import './TeamContainer.css';
 
+import Drawer from '../Drawer/Drawer.js';
 import Routes from '../../routes.js';
 
 class TeamContainer extends Component {
@@ -38,6 +39,7 @@ class TeamContainer extends Component {
 
     return (
       <div className={["team-container flex flex-column flex-jc-flex-start flex-ai-center"]}>
+        <Drawer goBack={this.props.history.goBack} />
         <div className={["team-title flex flex-row flex-all-center"]}>
           <h2>
             This is team { Team.title } container
