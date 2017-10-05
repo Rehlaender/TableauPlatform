@@ -1,0 +1,50 @@
+.team-container {
+  height: 100%;
+  width: 100%;
+}
+
+.team-title {
+  width: 100%;
+  height: 70px;
+  background-color: pink;
+}
+
+.team-content {
+  width: 90%;
+  height: 100%;
+}
+
+.section-container {
+  width: 100%;
+  height: auto;
+  border: 3px solid orange;
+  border-radius: 5px;
+  margin: 5px 0px;
+}
+
+.section-title {
+  border-bottom: 1px solid black;
+}
+
+.section-content {
+  height: 100%;
+  width: 100%;
+}
+
+.visualization-container {
+  margin: 5px;
+  border: 1px solid orange;
+}
+
+.visualization-icon {
+  height: 40px;
+  width: 40px;
+  background-color: orange;
+  border-radius: 100%;
+  margin-bottom: 3px;
+}
+
+.visualization-container, .visualization-title, .visualization-title:hover {
+  text-decoration: none;
+  color: black;
+}
