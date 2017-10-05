@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+import '../../flexbox.css';
+import './VisualizationContainer.css';
+
 import Routes from '../../routes.js';
 
 class VisualizationContainer extends Component {
@@ -11,8 +15,8 @@ class VisualizationContainer extends Component {
   }
 
   componentDidMount() {
-    this.initViz();
-    console.log(this.state.actualVisualization.tableauUrl);
+    //this.initViz();
+    // console.log(this.state.actualVisualization.tableauUrl);
   }
 
   componentWillMount() {
@@ -54,11 +58,8 @@ class VisualizationContainer extends Component {
     const Visualization = this.state.actualVisualization;
 
     return (
-      <div>
-        This is Visualization { Visualization.title } container
-        <p>-</p>
+      <div id="visualization-container" className={["flex flex-column flex-jc-flex-start flex-ai-center"]}>
         <Link to={ "/team/" + this.props.match.params.team }> Go back to { this.props.match.params.team }</Link>
-        <p>-</p>
         <br/>
         <div id="containerDiv"></div>
       </div>

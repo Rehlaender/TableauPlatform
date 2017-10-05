@@ -1,6 +1,19 @@
+@media only screen and (max-width : 400px) {
+  .team-container {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+  }
+}
+
 .team-container {
   height: 100%;
   width: 100%;
+}
+
+@media only screen and (max-width : 400px) {
+  .team-title {
+    height: 150px !important;
+  }
 }
 
 .team-title {
@@ -11,7 +24,6 @@
 
 .team-content {
   width: 90%;
-  height: 100%;
 }
 
 .section-container {
@@ -34,6 +46,16 @@
 .visualization-container {
   margin: 5px;
   border: 1px solid orange;
+  height: 60px;
+}
+
+@media only screen and (max-width : 400px) {
+  .visualization-container {
+    margin: 0px;
+    width: 48%;
+    height: 80px;
+    text-align: center;
+  }
 }
 
 .visualization-icon {

@@ -37,9 +37,11 @@ class TeamContainer extends Component {
     const Team = this.state.actualTeam;
 
     return (
-      <div className={["team-container flex flex-column flex-all-center"]}>
+      <div className={["team-container flex flex-column flex-jc-flex-start flex-ai-center"]}>
         <div className={["team-title flex flex-row flex-all-center"]}>
-          This is team { Team.title } container
+          <h2>
+            This is team { Team.title } container
+          </h2>
         </div>
         <div className={["team-content flex flex-row flex-wrap flex-jc-space-around"]}>
         {
@@ -47,9 +49,9 @@ class TeamContainer extends Component {
           Team.context.map((Section, i) =>
             <div key={i}
               className={["section-container flex flex-column"]}>
-              <div className={["section-title"]}>
+              <h3 className={["section-title"]}>
                 {Section.title}
-              </div>
+              </h3>
               <div className={["section-content flex flex-row flex-jc-space-between flex-wrap"]}>
               {
                 // Visualizations
@@ -59,7 +61,7 @@ class TeamContainer extends Component {
                             '/' + Section.id + '/' + Visualization.id  }
                         className={["visualization-container flex flex-column flex-all-center"]} >
                     <div className={["visualization-icon flex flex-all-center"]}>
-                     //
+                     /
                     </div>
                     <div className={["visualization-title"]}>
                       {Visualization.title}
