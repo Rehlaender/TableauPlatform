@@ -40,7 +40,7 @@ class TeamContainer extends Component {
 
     return (
       <div className={["team-container flex flex-column flex-jc-flex-start flex-ai-center"]}>
-        <Drawer goBack={this.props.history.goBack} routes={this.state.routesForDrawer}/>
+        <Drawer goBack={this.props.history.goBack} routes={this.state.routesForDrawer} actualRouteParams={this.props.match.params} />
         <div className={["team-title flex flex-row flex-all-center default-primary-color text-primary-color "]}>
           <h2>
             { Team.title }

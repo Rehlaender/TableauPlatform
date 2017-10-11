@@ -61,7 +61,7 @@ class VisualizationContainer extends Component {
 
     return (
       <div id="visualization-container" className={["flex flex-column flex-jc-flex-start flex-ai-center"]}>
-        <Drawer goBack={this.props.history.goBack} routes={this.state.routesForDrawer}/>
+        <Drawer goBack={this.props.history.goBack} routes={this.state.routesForDrawer} actualRouteParams={this.props.match.params} />
         <div id="containerDiv"></div>
       </div>
     );

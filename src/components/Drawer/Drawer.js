@@ -26,21 +26,23 @@ class Drawer extends Component {
     }
   }
 
+  componentDidMount () {
+    console.log('DRAER ROUTES', this.props.actualRouteParams);
+
+  }
+
   render() {
-  console.log(this.props.routes);
+
     return (
       <div id="drawer" className={["flex flex-column"]}>
         <div style={{top: this.state.overMenuBottom, display: this.state.overMenuDisplay }}
-            className={["over-menu flex flex-column flex-jc-space-around flex-ai-center"]}>
+            className={["over-menu default-primary-color flex flex-column flex-jc-space-around flex-ai-center"]}>
         {
           this.props.routes.map((route, i) =>
-            <div key={i} className={["flex flex-column"]}>
-              <div>{route.title}</div>
-              {
-                // this.props.routes[0].context.map((contextRoute, j)) =>
-                //   <div key={j}>{contextRoute.title}</div>
-                // )
-              }
+            <div key={i} className={["menu-link-container divider-color flex flex-column flex-all-center"]}>
+              <div className={["menu-link text-primary-color"]}>{
+                    route.title
+              }</div>
             </div>
           )
         }
