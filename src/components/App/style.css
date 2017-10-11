@@ -2,7 +2,6 @@
   /*text-align: center;*/
   height: 100vh;
   width: 100vw;
-  background-color: red;
 }
 
 .App {
@@ -37,7 +36,6 @@
 .content {
   width: 95%;
   height: 95%;
-  background-color: green;
 }
 
 .content-padding {

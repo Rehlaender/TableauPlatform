@@ -1,8 +1,14 @@
 @media only screen and (max-width : 400px) {
-  .team-container {
+  .team-content-container {
     scroll-behavior: smooth;
     overflow-y: scroll;
     margin-bottom: 30px;
+  }
+  .team-container {
+    background-color: #fff;
+  }
+  .team-content {
+    height: 100%;
   }
 }
 
@@ -23,6 +29,11 @@
   background-color: pink;
 }
 
+.team-content-container {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
 .team-content {
   width: 90%;
 }

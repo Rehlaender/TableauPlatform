@@ -20,7 +20,7 @@
 }
 
 .over-menu {
-  transition: all 500ms;
+  transition: all 200ms;
   position: relative;
   /*bottom: -100vh;*/
   left: 0px;

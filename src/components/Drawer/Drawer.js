@@ -22,7 +22,7 @@ class Drawer extends Component {
 
     } else {
       this.setState({overMenuBottom: '-100vh'});
-      setTimeout( ()=> {this.setState({overMenuDisplay: 'none'})}, 550);
+      setTimeout( ()=> {this.setState({overMenuDisplay: 'none'})}, 200);
     }
   }
 

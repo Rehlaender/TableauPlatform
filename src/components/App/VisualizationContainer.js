@@ -17,7 +17,7 @@ class VisualizationContainer extends Component {
   }
 
   componentDidMount() {
-    //this.initViz();
+    this.initViz();
     // console.log(this.state.actualVisualization.tableauUrl);
   }
 

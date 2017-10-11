@@ -43,39 +43,42 @@ class TeamContainer extends Component {
         <Drawer goBack={this.props.history.goBack} routes={this.state.routesForDrawer}/>
         <div className={["team-title flex flex-row flex-all-center"]}>
           <h2>
-            This is team { Team.title } container
+            { Team.title }
           </h2>
         </div>
-        <div className={["team-content flex flex-row flex-wrap flex-jc-space-around"]}>
-        {
-          // Sections containers
-          Team.context.map((Section, i) =>
-            <div key={i}
-              className={["section-container flex flex-column"]}>
-              <h3 className={["section-title"]}>
-                {Section.title}
-              </h3>
-              <div className={["section-content flex flex-row flex-jc-space-between flex-wrap"]}>
-              {
-                // Visualizations
-                Section.context.map((Visualization, j) =>
-                  <Link key={j}
-                        to={'/visualization/' + Team.id +
-                            '/' + Section.id + '/' + Visualization.id  }
-                        className={["visualization-container flex flex-column flex-all-center"]} >
-                    <div className={["visualization-icon flex flex-all-center"]}>
-                     /
-                    </div>
-                    <div className={["visualization-title"]}>
-                      {Visualization.title}
-                    </div>
-                  </Link>
-                )
-              }
-              </div>
-           </div>
-          )
-        }
+        <div className={["team-content-container flex flex-row flex-all-center"]}>
+          <div className={["team-content flex flex-row flex-wrap flex-jc-space-around"]}>
+          {
+            // Sections containers
+            Team.context.map((Section, i) =>
+              <div key={i}
+                className={["section-container flex flex-column"]}>
+                <h3 className={["section-title"]}>
+                  {Section.title}
+                </h3>
+                <div className={["section-content flex flex-row flex-jc-space-between flex-wrap"]}>
+                {
+                  // Visualizations
+                  Section.context.map((Visualization, j) =>
+                    <Link key={j}
+                          to={'/visualization/' + Team.id +
+                              '/' + Section.id + '/' + Visualization.id  }
+                          className={["visualization-container flex flex-column flex-all-center"]} >
+                      <div className={["visualization-icon flex flex-all-center"]}>
+                       /
+                      </div>
+                      <div className={["visualization-title"]}>
+                        {Visualization.title}
+                      </div>
+                    </Link>
+                  )
+                }
+                </div>
+             </div>
+            )
+          }
+          </div>
+
         </div>
       </div>
     );
