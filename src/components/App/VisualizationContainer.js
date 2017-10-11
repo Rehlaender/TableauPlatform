@@ -12,7 +12,8 @@ class VisualizationContainer extends Component {
     super(props);
     this.state = {
       actualVisualization: 'visualization',
-      routesForDrawer: ''
+      routesForDrawer: '',
+      locationForDrawer: ''
     };
   }
 
@@ -23,6 +24,7 @@ class VisualizationContainer extends Component {
 
   componentWillMount() {
     this.findVisualizationObject();
+    this.setState({ locationForDrawer: this.props.location.pathname });
   }
 
   initViz() {
@@ -53,7 +55,7 @@ class VisualizationContainer extends Component {
     const findVisualization = findSection[0].context.filter((obj) => {
       return obj.id === actualVisualization;
     });
-    this.setState({ actualVisualization: findVisualization[0], routesForDrawer: findTeam[0].context });
+    this.setState({ actualVisualization: findVisualization[0], routesForDrawer: findSection[0].context });
   }
 
   render() {
@@ -61,7 +63,11 @@ class VisualizationContainer extends Component {
 
     return (
       <div id="visualization-container" className={["flex flex-column flex-jc-flex-start flex-ai-center"]}>
-        <Drawer goBack={this.props.history.goBack} routes={this.state.routesForDrawer} actualRouteParams={this.props.match.params} />
+        <Drawer goBack={this.props.history.goBack}
+                routes={this.state.routesForDrawer}
+                actualRouteParams={this.props.match.params}
+                locationForDrawer={this.state.locationForDrawer}
+                history={this.props.history} />
         <div id="containerDiv"></div>
       </div>
     );
