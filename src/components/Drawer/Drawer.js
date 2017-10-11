@@ -34,6 +34,8 @@ class Drawer extends Component {
 
   goTo(route) {
     console.log(route, " AYA VAMOS COMPA");
+    this.props.history(route);
+    this.toggleOverMenu();
   }
 
   componentWillMount () {

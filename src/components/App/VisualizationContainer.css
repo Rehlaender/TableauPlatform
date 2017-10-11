@@ -7,7 +7,7 @@
 }
 
 @media only screen and (min-width : 1200px) {
-  #containerDiv {
+  #reduxContainer {
     width: 100%;
     background-color: #FFF;
     height: calc(100% - 40px);
@@ -15,7 +15,7 @@
 }
 
 @media only screen and (max-width : 400px) {
-  #containerDiv {
+  #reduxContainer {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -25,5 +25,5 @@
   }
 }
 
-#containerDiv {
+#reduxContainer {
 }

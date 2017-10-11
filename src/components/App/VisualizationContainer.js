@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 
 import '../../flexbox.css';
 import './VisualizationContainer.css';
 
+import Visualization from './Visualization.js';
 import Drawer from '../Drawer/Drawer.js';
 import Routes from '../../routes.js';
 
@@ -17,29 +19,60 @@ class VisualizationContainer extends Component {
     };
   }
 
+  changeLoadingState() {
+    console.log('lol');
+  }
+
+
   componentDidMount() {
-    this.initViz();
+    console.log("ME MONTE");
+    //this.initViz();
+    this.mount();
     // console.log(this.state.actualVisualization.tableauUrl);
   }
 
+  componentDidUpdate (prevProps, prevState){
+    console.log("YA CAMBIE, PERRO");
+    this.unmount();
+    setTimeout( ()=> {this.mount();}, 500);
+  }
+
   componentWillMount() {
+    console.log("ME MONTARE");
     this.findVisualizationObject();
     this.setState({ locationForDrawer: this.props.location.pathname });
   }
 
-  initViz() {
-    const containerDiv = document.getElementById("containerDiv");
-
-    const options = {
-            hideTabs: true,
-            hideToolbar: true,
-            onFirstInteractive: function () {
-              console.log("this is a callback after loading viz.");
-              //fireFunction();
-            }
-          };
-    let viz = new window.tableau.Viz(containerDiv, this.state.actualVisualization.tableauUrl, options);
+  mount() {
+    ReactDOM.render(
+      <Visualization
+        tableauSrc={this.state.actualVisualization.tableauUrl}
+         />,
+      document.getElementById('reduxContainer'));
   }
+
+  unmount() {
+    ReactDOM.unmountComponentAtNode(document.getElementById('reduxContainer'));
+  }
+
+  redoViz() {
+    const containerDiv = document.getElementById("containerDiv");
+    let viz = new window.HTMLDivElement(containerDiv);
+  }
+
+  // initViz() {
+  //   const containerDiv = document.getElementById("containerDiv");
+  //
+  //   const options = {
+  //           hideTabs: true,
+  //           hideToolbar: true,
+  //           onFirstInteractive: function () {
+  //             console.log("this is a callback after loading viz.");
+  //             //fireFunction();
+  //           }
+  //         };
+  //   let viz = new window.tableau.Viz(containerDiv, this.state.actualVisualization.tableauUrl, options);
+  // }
 
   findVisualizationObject() {
     const actualTeam = this.props.match.params.team;
@@ -59,6 +92,7 @@ class VisualizationContainer extends Component {
   }
 
   render() {
+    console.log("ME RENDER");
     const Visualization = this.state.actualVisualization;
 
     return (
@@ -67,8 +101,8 @@ class VisualizationContainer extends Component {
                 routes={this.state.routesForDrawer}
                 actualRouteParams={this.props.match.params}
                 locationForDrawer={this.state.locationForDrawer}
-                history={this.props.history} />
-        <div id="containerDiv"></div>
+                history={this.props.history.push} />
+        <div id="reduxContainer"></div>
       </div>
     );
   }
