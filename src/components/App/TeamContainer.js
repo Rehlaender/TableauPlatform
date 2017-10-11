@@ -41,7 +41,7 @@ class TeamContainer extends Component {
     return (
       <div className={["team-container flex flex-column flex-jc-flex-start flex-ai-center"]}>
         <Drawer goBack={this.props.history.goBack} routes={this.state.routesForDrawer}/>
-        <div className={["team-title flex flex-row flex-all-center"]}>
+        <div className={["team-title flex flex-row flex-all-center default-primary-color text-primary-color "]}>
           <h2>
             { Team.title }
           </h2>
@@ -53,10 +53,10 @@ class TeamContainer extends Component {
             Team.context.map((Section, i) =>
               <div key={i}
                 className={["section-container flex flex-column"]}>
-                <h3 className={["section-title"]}>
+                <h3 className={["section-title divider-color default-primary-color  text-primary-color"]}>
                   {Section.title}
                 </h3>
-                <div className={["section-content flex flex-row flex-jc-space-between flex-wrap"]}>
+                <div className={["section-content flex flex-row flex-jc-space-evenly flex-wrap"]}>
                 {
                   // Visualizations
                   Section.context.map((Visualization, j) =>
@@ -64,10 +64,10 @@ class TeamContainer extends Component {
                           to={'/visualization/' + Team.id +
                               '/' + Section.id + '/' + Visualization.id  }
                           className={["visualization-container flex flex-column flex-all-center"]} >
-                      <div className={["visualization-icon flex flex-all-center"]}>
+                      <div className={["visualization-icon flex flex-all-center secondary-text-color"]}>
                        /
                       </div>
-                      <div className={["visualization-title"]}>
+                      <div className={["visualization-title secondary-text-color "]}>
                         {Visualization.title}
                       </div>
                     </Link>

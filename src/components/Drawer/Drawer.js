@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Glyphicon } from 'react-bootstrap';
 import './Drawer.css';
 
 import Routes from '../../routes.js';
@@ -46,9 +46,9 @@ class Drawer extends Component {
         }
         </div>
         <div id="action-bar" className={["flex flex-row flex-jc-space-around flex-ai-center"]}>
-          <div onClick={ ()=>{this.props.goBack();} } className={["back icon"]}>Go Back</div>
-          <Link to="/" className={["home icon"]}>HOME</Link>
-          <div onClick={this.toggleOverMenu.bind(this)} className={["burger icon"]}>Burger</div>
+          <div onClick={ ()=>{this.props.goBack();} } className={["back icon flex flex-all-center"]}><Glyphicon glyph="triangle-left"/></div>
+          <Link to="/" className={["home icon flex flex-all-center"]}><Glyphicon glyph="home"/></Link>
+          <div onClick={this.toggleOverMenu.bind(this)} className={["burger icon flex flex-all-center"]}><Glyphicon glyph="menu-hamburger"/></div>
         </div>
       </div>
     );

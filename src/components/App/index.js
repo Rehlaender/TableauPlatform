@@ -7,6 +7,7 @@ import VisualizationContainer from './VisualizationContainer.js';
 
 import Blob from './Blob.js';
 
+import '../../pallette.css';
 import './style.css';
 import '../../flexbox.css';
 

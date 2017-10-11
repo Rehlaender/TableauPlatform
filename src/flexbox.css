@@ -16,6 +16,7 @@
 .flex-jc-center { justify-content: center; }
 .flex-jc-space-between { justify-content: space-between; }
 .flex-jc-space-around { justify-content: space-around; }
+.flex-jc-space-evenly { justify-content: space-evenly; }
 /* align-items */
 .flex-ai-start { align-items: flex-start; }
 .flex-ai-end { align-items: flex-end; }
