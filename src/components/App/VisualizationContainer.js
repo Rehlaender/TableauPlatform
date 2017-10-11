@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+import '../../flexbox.css';
+import './VisualizationContainer.css';
+
+import Drawer from '../Drawer/Drawer.js';
 import Routes from '../../routes.js';
 
 class VisualizationContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      actualVisualization: 'visualization'
+      actualVisualization: 'visualization',
+      routesForDrawer: ''
     };
   }
 
   componentDidMount() {
     this.initViz();
-    console.log(this.state.actualVisualization.tableauUrl);
+    // console.log(this.state.actualVisualization.tableauUrl);
   }
 
   componentWillMount() {
@@ -47,19 +53,15 @@ class VisualizationContainer extends Component {
     const findVisualization = findSection[0].context.filter((obj) => {
       return obj.id === actualVisualization;
     });
-    this.setState({ actualVisualization: findVisualization[0] });
+    this.setState({ actualVisualization: findVisualization[0], routesForDrawer: findTeam[0].context });
   }
 
   render() {
     const Visualization = this.state.actualVisualization;
 
     return (
-      <div>
-        This is Visualization { Visualization.title } container
-        <p>-</p>
-        <Link to={ "/team/" + this.props.match.params.team }> Go back to { this.props.match.params.team }</Link>
-        <p>-</p>
-        <br/>
+      <div id="visualization-container" className={["flex flex-column flex-jc-flex-start flex-ai-center"]}>
+        <Drawer goBack={this.props.history.goBack} routes={this.state.routesForDrawer} actualRouteParams={this.props.match.params} />
         <div id="containerDiv"></div>
       </div>
     );

@@ -1,0 +1,82 @@
+@media only screen and (max-width : 400px) {
+  .team-content-container {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    margin-bottom: 30px;
+  }
+  .team-container {
+    background-color: #fff;
+  }
+  .team-content {
+    height: 100%;
+  }
+}
+
+.team-container {
+  height: 100%;
+  width: 100%;
+}
+
+@media only screen and (max-width : 400px) {
+  .team-title {
+    height: 150px !important;
+  }
+}
+
+.team-title {
+  width: 100%;
+  height: 70px;
+}
+
+.team-content-container {
+  width: 100%;
+  height: 100%;
+}
+.team-content {
+  width: 90%;
+}
+
+.section-container {
+  width: 100%;
+  height: auto;
+  border: 3px solid #FF9800;
+  border-radius: 5px;
+  margin: 5px 0px;
+}
+
+.section-title {
+  padding: 5px;
+  border-bottom: 1px solid;
+  text-align: center;
+}
+
+.section-content {
+  height: 100%;
+  width: 100%;
+}
+
+.visualization-container {
+  margin: 5px;
+  height: 60px;
+}
+
+@media only screen and (max-width : 400px) {
+  .visualization-container {
+    margin: 0px;
+    width: 48%;
+    height: 80px;
+    text-align: center;
+  }
+}
+
+.visualization-icon {
+  height: 40px;
+  width: 40px;
+  background-color: orange;
+  border-radius: 100%;
+  margin-bottom: 3px;
+}
+
+.visualization-title, .visualization-title:hover, .visualization-icon, .visualization-icon:hover, .visualization-container, .visualization-title, .visualization-title:hover {
+  text-decoration: none !important;
+}

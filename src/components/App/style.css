@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
+  height: 100vh;
+  width: 100vw;
 }
 
 .App {
@@ -29,4 +31,22 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.content {
+  width: 95%;
+  height: 95%;
+}
+
+.content-padding {
+  padding: 20px;
+}
+
+h1, h2, h3, h4 {
+  margin: 0px;
+  padding: 0px;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
 }

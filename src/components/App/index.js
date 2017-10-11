@@ -7,22 +7,23 @@ import VisualizationContainer from './VisualizationContainer.js';
 
 import Blob from './Blob.js';
 
+import '../../pallette.css';
 import './style.css';
+import '../../flexbox.css';
 
 class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <p>-</p>
-        <Link to='/'> Home </Link>
-        <p>-</p>
-        <Switch>
-          <Route exact path='/' component={MainContainer}/>
-          <Route path='/team/:team' component={TeamContainer}/>
-          <Route path='/visualization/:team/:section/:visualization' component={VisualizationContainer}/>
-          <Route path='*' component={Blob}/>
-        </Switch>
+      <div className="App flex flex-column flex-all-center">
+        <div className="content flex flex-column">
+          <Switch>
+            <Route exact path='/' component={MainContainer}/>
+            <Route path='/team/:team' component={TeamContainer}/>
+            <Route path='/visualization/:team/:section/:visualization' component={VisualizationContainer}/>
+            <Route path='*' component={Blob}/>
+          </Switch>
+        </div>
       </div>
     );
   }

@@ -1,0 +1,45 @@
+#drawer {
+  position: absolute;
+  width: 100vw;
+  bottom: 0px;
+  left: 0px;
+}
+
+#action-bar {
+  position: absolute;
+  bottom: 0px;
+  height: 40px;
+  width: 100vw;
+  background-color: white;
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+  color: #F57C00;
+}
+
+.over-menu {
+  transition: all 200ms;
+  position: relative;
+  /*bottom: -100vh;*/
+  left: 0px;
+  z-index: 100;
+  height: calc(100vh - 40px);
+  width: 100vw;
+}
+.menu-link-container {
+  border-bottom: 1px solid;
+  flex: 1;
+  width: 100%;
+}
+
+.menu-link {
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu-link:hover {
+  font-size: 1.1em;
+}

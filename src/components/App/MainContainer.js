@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+import '../../flexbox.css';
+
 import Routes from '../../routes.js';
 
 class MainContainer extends Component {
@@ -13,8 +16,13 @@ class MainContainer extends Component {
     console.log(routes);
 
     return (
-      <div>
-        This is a main container
+      <div style={{height:'100%', textAlign:'center'}} className={["main-container flex flex-column flex-all-center"]}>
+        <div className={["main-title"]}>
+          <h1>
+            Neoris
+          </h1>
+        </div>
+        <div className={["main-content flex flex-column"]}>
         {
           routes.map((route, i) =>
            <Link to={"/team/" + route.id}
@@ -23,6 +31,7 @@ class MainContainer extends Component {
            </Link>
           )
         }
+        </div>
       </div>
     );
   }
