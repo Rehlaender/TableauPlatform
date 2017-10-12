@@ -20,26 +20,19 @@ class VisualizationContainer extends Component {
   }
 
   changeLoadingState() {
-    console.log("changing!!!!!!!!!!");
     this.unmount();
-    this.findVisualizationObject();
-    this.setState({ locationForDrawer: this.props.location.pathname });
-    setTimeout( ()=> {this.mount();}, 500);
+    setTimeout( ()=> {this.findVisualizationObject();}, 100);
+    setTimeout( ()=> {this.mount();}, 100);
   }
 
   componentDidMount() {
-    //console.log("ME MONTE");
     this.mount();
   }
 
-  componentDidUpdate (prevProps, prevState){
-    // console.log("YA CAMBIE, PERRO");
-    // this.unmount();
-    // setTimeout( ()=> {this.mount();}, 500);
+  componentWillUpdate (prevProps, prevState){
   }
 
   componentWillMount() {
-    console.log("ME MONTARE");
     this.findVisualizationObject();
     this.setState({ locationForDrawer: this.props.location.pathname });
   }
@@ -48,7 +41,6 @@ class VisualizationContainer extends Component {
     ReactDOM.render(
       <Visualization
         tableauSrc={this.state.actualVisualization.tableauUrl}
-        changeLoadingState={this.changeLoadingState.bind(this)}
          />,
       document.getElementById('reduxContainer'));
   }
@@ -61,20 +53,6 @@ class VisualizationContainer extends Component {
     const containerDiv = document.getElementById("containerDiv");
     let viz = new window.HTMLDivElement(containerDiv);
   }
-
-  // initViz() {
-  //   const containerDiv = document.getElementById("containerDiv");
-  //
-  //   const options = {
-  //           hideTabs: true,
-  //           hideToolbar: true,
-  //           onFirstInteractive: function () {
-  //             console.log("this is a callback after loading viz.");
-  //             //fireFunction();
-  //           }
-  //         };
-  //   let viz = new window.tableau.Viz(containerDiv, this.state.actualVisualization.tableauUrl, options);
-  // }
 
   findVisualizationObject() {
     const actualTeam = this.props.match.params.team;
@@ -94,7 +72,6 @@ class VisualizationContainer extends Component {
   }
 
   render() {
-    console.log("ME RENDER");
     const Visualization = this.state.actualVisualization;
 
     return (

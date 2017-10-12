@@ -8,12 +8,10 @@ import Routes from '../../routes.js';
 class MainContainer extends Component {
 
   goTo(route) {
-    console.log(route, '- well call this object');
   }
 
   render() {
     const routes = Routes;
-    console.log(routes);
 
     return (
       <div style={{height:'100%', textAlign:'center'}}

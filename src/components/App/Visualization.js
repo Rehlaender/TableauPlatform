@@ -26,7 +26,6 @@ class Visualization extends Component {
           }
         };
     let viz = new window.tableau.Viz(ContainerDiv, this.props.tableauSrc, options);
-    console.log(viz);
   }
 
   render() {

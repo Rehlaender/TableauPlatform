@@ -19,6 +19,7 @@
   color: #F57C00;
   text-decoration: none;
   cursor: pointer;
+  font-size: 1.2em;
 }
 
 .icon:hover, .icon:active {

@@ -5,7 +5,6 @@ import Routes from '../../routes.js';
 class SectionContainer extends Component {
 
   goTo(route) {
-    console.log(route, '- well call this object');
   }
 
   render() {
