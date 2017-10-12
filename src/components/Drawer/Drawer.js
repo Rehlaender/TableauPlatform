@@ -11,7 +11,8 @@ class Drawer extends Component {
     this.state = {
       overMenuBottom: '-100vh',
       overMenuDisplay: 'none',
-      routes: ''
+      routes: '',
+      newLocation: ''
     };
   }
 
@@ -26,24 +27,55 @@ class Drawer extends Component {
     }
   }
 
-  componentDidMount () {
-    console.log('DRAER ROUTES', this.props.actualRouteParams);
+  prepareNewRoute() {
+    let routesArray = this.props.locationForDrawer.split('/').slice(0, -1).join('/');
+    this.setState({ newLocation: routesArray });
+  }
+
+  goTo(route) {
+    console.log(route, " AYA VAMOS COMPA");
+    this.props.history(route);
+    this.changeLoadingState();
+    this.toggleOverMenu();
+  }
+
+  changeLoadingState() {
+    var splitter = this.props.locationForDrawer.split('/');
+    if(splitter[1] === 'visualization') {
+      this.props.changeLoadingState();
+    } else {
+      console.log('prevent default');
+    }
 
   }
 
-  render() {
+  componentWillMount () {
+    this.prepareNewRoute();
+  }
 
+  componentDidMount () {
+    console.log('DRAER ROUTES', this.props.locationForDrawer);
+  }
+
+  render() {
+    console.log(this.props);
     return (
       <div id="drawer" className={["flex flex-column"]}>
         <div style={{top: this.state.overMenuBottom, display: this.state.overMenuDisplay }}
             className={["over-menu default-primary-color flex flex-column flex-jc-space-around flex-ai-center"]}>
         {
-          this.props.routes.map((route, i) =>
-            <div key={i} className={["menu-link-container divider-color flex flex-column flex-all-center"]}>
-              <div className={["menu-link text-primary-color"]}>{
-                    route.title
-              }</div>
-            </div>
+          this.props.routes.map((route, i) => {
+            let going = this.state.newLocation + '/' + route.id;
+              return (
+                <div key={i} className={["menu-link-container divider-color flex flex-column flex-all-center"]}>
+                  <div onClick={ this.goTo.bind(this, going) }
+                        className={["menu-link text-primary-color"]} replace="true">
+                        { route.title }
+                  </div>
+                </div>
+              )
+            }
+
           )
         }
         </div>

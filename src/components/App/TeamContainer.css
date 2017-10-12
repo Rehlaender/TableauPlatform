@@ -60,6 +60,10 @@
   height: 60px;
 }
 
+.visualization-container:hover {
+  opacity: 0.85;
+}
+
 @media only screen and (max-width : 400px) {
   .visualization-container {
     margin: 0px;

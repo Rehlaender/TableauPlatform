@@ -12,7 +12,8 @@ class TeamContainer extends Component {
     super(props);
     this.state = {
       actualTeam: 'notmanufactura',
-      routesForDrawer: ''
+      routesForDrawer: '',
+      locationForDrawer: ''
     };
   }
 
@@ -25,6 +26,7 @@ class TeamContainer extends Component {
 
   componentWillMount() {
     this.findTeamObject();
+    this.setState({ locationForDrawer: this.props.location.pathname });
   }
 
   findTeamObject() {
@@ -40,7 +42,11 @@ class TeamContainer extends Component {
 
     return (
       <div className={["team-container flex flex-column flex-jc-flex-start flex-ai-center"]}>
-        <Drawer goBack={this.props.history.goBack} routes={this.state.routesForDrawer} actualRouteParams={this.props.match.params} />
+        <Drawer goBack={this.props.history.goBack}
+                routes={this.state.routesForDrawer}
+                actualRouteParams={this.props.match.params}
+                locationForDrawer={this.state.locationForDrawer}
+                history={this.props.history.push} />
         <div className={["team-title flex flex-row flex-all-center default-primary-color text-primary-color "]}>
           <h2>
             { Team.title }
