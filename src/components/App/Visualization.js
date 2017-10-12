@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import './VisualizationContainer.css';
+import './Visualization.css';
+
 
 class Visualization extends Component {
   constructor(props) {
@@ -30,7 +32,7 @@ class Visualization extends Component {
 
   render() {
     return (
-      <div className="visualization-container">
+      <div id="visualization-container">
         <div id="ContainerDiv"></div>
       </div>
     );

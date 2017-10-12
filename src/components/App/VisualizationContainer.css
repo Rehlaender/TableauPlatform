@@ -23,6 +23,15 @@
     width: 100vw;
     background-color: #FFF;
   }
+
+  #visualization-container {
+    width: 100%;
+    height: calc(100%);
+    background: #FFF;
+    top: 0px;
+    left: 0px;
+  }
+
 }
 
 #reduxContainer {
