@@ -17,6 +17,14 @@
   height: 30px;
   width: 30px;
   color: #F57C00;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.icon:hover, .icon:active {
+  color: #F57C00;
+  opacity: 0.8;
+  text-decoration: none;
 }
 
 .over-menu {
