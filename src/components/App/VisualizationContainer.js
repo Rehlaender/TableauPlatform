@@ -20,21 +20,22 @@ class VisualizationContainer extends Component {
   }
 
   changeLoadingState() {
-    console.log('lol');
+    console.log("changing!!!!!!!!!!");
+    this.unmount();
+    this.findVisualizationObject();
+    this.setState({ locationForDrawer: this.props.location.pathname });
+    setTimeout( ()=> {this.mount();}, 500);
   }
 
-
   componentDidMount() {
-    console.log("ME MONTE");
-    //this.initViz();
+    //console.log("ME MONTE");
     this.mount();
-    // console.log(this.state.actualVisualization.tableauUrl);
   }
 
   componentDidUpdate (prevProps, prevState){
-    console.log("YA CAMBIE, PERRO");
-    this.unmount();
-    setTimeout( ()=> {this.mount();}, 500);
+    // console.log("YA CAMBIE, PERRO");
+    // this.unmount();
+    // setTimeout( ()=> {this.mount();}, 500);
   }
 
   componentWillMount() {
@@ -47,6 +48,7 @@ class VisualizationContainer extends Component {
     ReactDOM.render(
       <Visualization
         tableauSrc={this.state.actualVisualization.tableauUrl}
+        changeLoadingState={this.changeLoadingState.bind(this)}
          />,
       document.getElementById('reduxContainer'));
   }
@@ -101,7 +103,8 @@ class VisualizationContainer extends Component {
                 routes={this.state.routesForDrawer}
                 actualRouteParams={this.props.match.params}
                 locationForDrawer={this.state.locationForDrawer}
-                history={this.props.history.push} />
+                history={this.props.history.push}
+                changeLoadingState={this.changeLoadingState.bind(this)} />
         <div id="reduxContainer"></div>
       </div>
     );

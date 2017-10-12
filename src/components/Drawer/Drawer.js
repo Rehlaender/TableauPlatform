@@ -35,7 +35,18 @@ class Drawer extends Component {
   goTo(route) {
     console.log(route, " AYA VAMOS COMPA");
     this.props.history(route);
+    this.changeLoadingState();
     this.toggleOverMenu();
+  }
+
+  changeLoadingState() {
+    var splitter = this.props.locationForDrawer.split('/');
+    if(splitter[1] === 'visualization') {
+      this.props.changeLoadingState();
+    } else {
+      console.log('prevent default');
+    }
+
   }
 
   componentWillMount () {

@@ -23,7 +23,6 @@ class Visualization extends Component {
           hideToolbar: true,
           onFirstInteractive: function () {
             console.log("this is a callback after loading viz.");
-            //fireFunction();
           }
         };
     let viz = new window.tableau.Viz(ContainerDiv, this.props.tableauSrc, options);
