@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import '../../flexbox.css';
 import './VisualizationContainer.css';
 
+import LoadingView from './LoadingView.js';
 import Visualization from './Visualization.js';
 import Drawer from '../Drawer/Drawer.js';
 import Routes from '../../routes.js';
@@ -15,11 +16,18 @@ class VisualizationContainer extends Component {
     this.state = {
       actualVisualization: 'visualization',
       routesForDrawer: '',
-      locationForDrawer: ''
+      locationForDrawer: '',
+      loading: true
     };
   }
 
+  toggleLoadingView() {
+    this.setState({ loading: !this.state.loading });
+    console.log('this.loading.state: ', this.state.loading);
+  }
+
   changeLoadingState() {
+    this.toggleLoadingView();
     this.unmount();
     setTimeout( ()=> {this.findVisualizationObject();}, 100);
     setTimeout( ()=> {this.mount();}, 100);
@@ -40,6 +48,7 @@ class VisualizationContainer extends Component {
   mount() {
     ReactDOM.render(
       <Visualization
+        toggleLoadingView={this.toggleLoadingView.bind(this)}
         tableauSrc={this.state.actualVisualization.tableauUrl}
          />,
       document.getElementById('reduxContainer'));
@@ -76,12 +85,13 @@ class VisualizationContainer extends Component {
 
     return (
       <div id="visualization-container" className={["flex flex-column flex-jc-flex-start flex-ai-center"]}>
+        <LoadingView loading={this.state.loading}/>
         <Drawer goBack={this.props.history.goBack}
                 routes={this.state.routesForDrawer}
                 actualRouteParams={this.props.match.params}
                 locationForDrawer={this.state.locationForDrawer}
                 history={this.props.history.push}
-                changeLoadingState={this.changeLoadingState.bind(this)} />
+                changeLoadingState={this.changeLoadingState.bind(this)}/>
         <div id="reduxContainer"></div>
       </div>
     );
