@@ -14,6 +14,21 @@ import '../../flexbox.css';
 
 class App extends Component {
 
+  createFirstLoad() {
+    localStorage.setItem('firstLoad', 'true');
+  }
+
+  componentWillMount() {
+    this.createFirstLoad();
+  }
+
+  componentDidMount() {
+    const firstLoad = localStorage.getItem('firstLoad');
+    if(firstLoad === 'true') {
+      localStorage.removeItem('isAdminLoged');
+    }
+  }
+
   render() {
     return (
       <div className="App flex flex-column flex-all-center">
