@@ -14,8 +14,6 @@ class LoginComponent extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    console.log("will update");
-    console.log(nextState);
     if(nextState.loginStatus === "success") {
       this.Login();
     }
