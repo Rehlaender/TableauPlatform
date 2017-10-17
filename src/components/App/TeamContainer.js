@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Glyphicon } from 'react-bootstrap';
 
 import '../../flexbox.css';
 import './TeamContainer.css';
@@ -71,7 +72,7 @@ class TeamContainer extends Component {
                               '/' + Section.id + '/' + Visualization.id  }
                           className={["visualization-container flex flex-column flex-all-center"]} >
                       <div className={["visualization-icon flex flex-all-center secondary-text-color"]}>
-                       /
+                       <Glyphicon glyph="file"/>
                       </div>
                       <div className={["visualization-title secondary-text-color "]}>
                         {Visualization.title}
