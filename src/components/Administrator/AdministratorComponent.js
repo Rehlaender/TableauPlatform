@@ -1,5 +1,5 @@
-// src/components/App/index.js
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Routes from '../../routes.js';
 import LoginComponent from './LoginComponent.js';
 
@@ -21,6 +21,9 @@ class AdministratorComponent extends Component {
     return (
       <div>
         Welcome AdministratorComponent
+
+        <br />
+        <Link to="/teams">Teams</Link>
       </div>
     );
   }

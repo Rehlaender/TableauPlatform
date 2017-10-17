@@ -6,6 +6,7 @@ import TeamContainer from './TeamContainer.js';
 import VisualizationContainer from './VisualizationContainer.js';
 import AdministratorComponent from '../Administrator/AdministratorComponent.js';
 import LoginComponent from '../Administrator/LoginComponent.js';
+import TeamCRUD from '../CRUD/Team/TeamCRUD.js';
 import Blob from './Blob.js';
 
 import '../../pallette.css';
@@ -39,6 +40,7 @@ class App extends Component {
             <Route path='/visualization/:team/:section/:visualization' component={VisualizationContainer}/>
             <Route path='/admin' component={AdministratorComponent} />
             <Route path='/login' component={LoginComponent} />
+            <Route path='/teams' component={TeamCRUD} />
             <Route path='*' component={Blob}/>
           </Switch>
         </div>
