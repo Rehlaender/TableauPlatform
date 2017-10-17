@@ -5,6 +5,7 @@ import MainContainer from './MainContainer.js';
 import TeamContainer from './TeamContainer.js';
 import VisualizationContainer from './VisualizationContainer.js';
 import AdministratorComponent from '../Administrator/AdministratorComponent.js';
+import LoginComponent from '../Administrator/LoginComponent.js';
 import Blob from './Blob.js';
 
 import '../../pallette.css';
@@ -21,7 +22,8 @@ class App extends Component {
             <Route exact path='/' component={MainContainer}/>
             <Route path='/team/:team' component={TeamContainer}/>
             <Route path='/visualization/:team/:section/:visualization' component={VisualizationContainer}/>
-            <Route path='/admin' component={AdministratorComponent}/>
+            <Route path='/admin' component={AdministratorComponent} />
+            <Route path='/login' component={LoginComponent} />
             <Route path='*' component={Blob}/>
           </Switch>
         </div>
