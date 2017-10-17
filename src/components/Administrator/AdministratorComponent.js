@@ -5,21 +5,16 @@ import LoginComponent from './LoginComponent.js';
 
 class AdministratorComponent extends Component {
 
-
-
   checkCookie() {
-    const adminCookie = false;
-    if(this.adminCookie === true) {
-      console.log("admin is loged");
+    const cookie = localStorage.getItem('isAdminLoged');
+    if(cookie === 'true') {
     } else {
-      console.log("admin isnt loged");
       this.props.history.push("/login");
     }
   }
 
   componentWillMount() {
     this.checkCookie();
-    console.log(this.props);
   }
 
   render() {

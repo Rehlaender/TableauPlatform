@@ -13,14 +13,29 @@ class LoginComponent extends Component {
     };
   }
 
+  componentWillMount() {
+    const cookie = localStorage.getItem('isAdminLoged');
+    console.log(cookie, 'cookie');
+    if(cookie != 'true') {
+    } else {
+      console.log("admin is loged");
+    }
+  }
+
   componentWillUpdate(nextProps, nextState) {
     if(nextState.loginStatus === "success") {
       this.Login();
     }
   }
 
+  createDummySessionToken() {
+    document.cookie = "sessionToken=Admin; expires=session; path=/;" ;
+    localStorage.setItem('isAdminLoged', 'true');
+  }
+
   Login() {
     alert("Login successful");
+    this.createDummySessionToken();
     setTimeout( ()=> { this.props.history.push("/admin"); }, 0);
   }
 
@@ -77,7 +92,7 @@ class LoginComponent extends Component {
             />
             <FormControl
               id="password"
-              type="text"
+              type="password"
               value={this.state.password}
               placeholder="Enter password"
               onChange={this.handleChange.bind(this)}
