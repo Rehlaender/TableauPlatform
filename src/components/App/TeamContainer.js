@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Glyphicon } from 'react-bootstrap';
+import * as firebase from 'firebase';
 
 import '../../flexbox.css';
 import './TeamContainer.css';
@@ -13,20 +14,59 @@ class TeamContainer extends Component {
     super(props);
     this.state = {
       actualTeam: 'notmanufactura',
-      routesForDrawer: '',
-      locationForDrawer: ''
+      routesForDrawer: [],
+      locationForDrawer: '',
+      sections: [],
+      visualizations: []
     };
-  }
-
-  goTo(route) {
-    console.log(route, '- well call this object');
   }
 
   componentDidMount() {
   }
 
+  retrieveVisualizationsFromSection(sectionId) {
+    let sectionContext = [];
+    this.state.visualizations.map((visualization, i) => {
+      if(visualization.section === sectionId) {
+        sectionContext.push(visualization);
+      }
+    })
+    return sectionContext;
+  }
+
+  retrieveVisualizationsFromDatabase() {
+    const rootRef = firebase.database().ref().child('visualizations');
+    rootRef.on('child_added', snapshot => {
+      let visualization = snapshot.val();
+      this.setState({ visualizations: [visualization].concat(this.state.visualizations) });
+    })
+  }
+
+  retrieveSectionsFromDatabase() {
+    const actualTeam = this.props.match.params.team;
+    const rootRef = firebase.database().ref().child('sections');
+    rootRef.on('child_added', snapshot => {
+      let section = snapshot.val();
+      if(section.team === actualTeam) {
+        this.setState({ sections: [section].concat(this.state.sections) });
+      }
+    })
+    this.setState({ actualTeam: actualTeam });
+  }
+
+  retrieveTeamsForDrawer() {
+    const rootRef = firebase.database().ref().child('teams');
+    rootRef.on('child_added', snapshot => {
+      let team = snapshot.val();
+      this.setState({ routesForDrawer: [team].concat(this.state.routesForDrawer) });
+    })
+  }
+
   componentWillMount() {
-    this.findTeamObject();
+    this.retrieveSectionsFromDatabase();
+    this.retrieveTeamsForDrawer();
+    this.retrieveVisualizationsFromDatabase();
+    // this.findTeamObject();
     this.setState({ locationForDrawer: this.props.location.pathname });
   }
 
@@ -39,8 +79,6 @@ class TeamContainer extends Component {
   }
 
   render() {
-    const Team = this.state.actualTeam;
-
     return (
       <div className={["team-container flex flex-column flex-jc-flex-start flex-ai-center"]}>
         <Drawer goBack={this.props.history.goBack}
@@ -50,14 +88,14 @@ class TeamContainer extends Component {
                 history={this.props.history.push} />
         <div className={["team-title flex flex-row flex-all-center default-primary-color text-primary-color "]}>
           <h2>
-            { Team.title }
+            { this.state.actualTeam }
           </h2>
         </div>
         <div className={["team-content-container flex flex-row flex-all-center"]}>
           <div className={["team-content flex flex-row flex-wrap flex-jc-space-around"]}>
           {
             // Sections containers
-            Team.context.map((Section, i) =>
+            this.state.sections.map((Section, i) =>
               <div key={i}
                 className={["section-container flex flex-column"]}>
                 <h3 className={["section-title divider-color default-primary-color  text-primary-color"]}>
@@ -65,14 +103,14 @@ class TeamContainer extends Component {
                 </h3>
                 <div className={["section-content flex flex-row flex-jc-space-evenly flex-wrap"]}>
                 {
-                  // Visualizations
-                  Section.context.map((Visualization, j) =>
+                  // Visualization
+                  this.retrieveVisualizationsFromSection(Section.id).map((Visualization, j) =>
                     <Link key={j}
-                          to={'/visualization/' + Team.id +
+                          to={'/visualization/' + this.state.actualTeam +
                               '/' + Section.id + '/' + Visualization.id  }
                           className={["visualization-container flex flex-column flex-all-center"]} >
                       <div className={["visualization-icon flex flex-all-center secondary-text-color"]}>
-                       <Glyphicon glyph="file"/>
+                       <Glyphicon glyph={ Visualization.icon }/>
                       </div>
                       <div className={["visualization-title secondary-text-color "]}>
                         {Visualization.title}
@@ -85,7 +123,6 @@ class TeamContainer extends Component {
             )
           }
           </div>
-
         </div>
       </div>
     );
